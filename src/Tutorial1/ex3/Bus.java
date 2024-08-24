@@ -8,17 +8,19 @@ public class Bus extends Vehicle {
     public Bus() {
         super();
     }
-
     // Bus
     public Bus(String name, Double width, Double height, Double length, Double weight, Integer seatingCapacity) {
-//        super(name, width, height, length, weight, seatingCapacity);
+        super(name, width, height, length, weight, seatingCapacity);
+        this.name = name;
+        this.width = width;
+        this.height = height;
         if (!validateWeight(weight)) {
             throw new IllegalArgumentException("Weight must be in the range [" + MIN_BUS_WEIGHT + ", " + MAX_BUS_WEIGHT  + "] kgs.");
         }
         this.weight = weight;
 
         if (!validateLength(length)) {
-            throw new IllegalArgumentException("length must be in the range [" + MIN_BUS_LENGTH + ", " + MAX_BUS_LENGTH + "] m.");
+            throw new IllegalArgumentException("length must be in the range [" + MIN_BUS_LENGTH + ", " + MAX_BUS_LENGTH + "] meters.");
         }
         this.length = length;
     }
@@ -42,20 +44,22 @@ public class Bus extends Vehicle {
             throw new IllegalArgumentException("Invalid Bus registration number format");
         }
     }
-
-//    @Override
-//    public String toString() {
-//        return "Bus: " + this.getClass().getName();
-//    }
+    @Override
+    public String toString() {
+        return "Bus{" +
+                "name='" + name + '\'' +
+                ", width=" + width +
+                ", height=" + height +
+                ", length=" + length +
+                ", weight=" + weight +
+                ", seatingCapacity=" + seatingCapacity +
+                ", registrationNumber='" + registrationNumber + '\'' +
+                ", MAXLENGTH=" + MAXLENGTH +
+                ", MIN=" + MIN +
+                '}';
+    }
 
     public static void main(String[] args) {
-//        try {
-//            Bus bus = new Bus("BusModel", 2.5, 3.5, 5.0, 5500.0, 50);
-//            // test
-//            System.out.println(bus);
-//        } catch (IllegalArgumentException e) {
-//            System.out.println(e.getMessage());
-//        }
         // Test Bus
         Bus bus = new Bus();
         try {

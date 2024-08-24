@@ -18,7 +18,7 @@ public class Car extends Vehicle {
         this.weight = weight;
 
         if (!validateLength(length)) {
-            throw new IllegalArgumentException("length must be in the range [" + MIN_CAR_LENGTH + ", " + MAX_CAR_LENGTH + "] kgs.");
+            throw new IllegalArgumentException("length must be in the range [" + MIN_CAR_LENGTH + ", " + MAX_CAR_LENGTH + "] meters.");
         }
         this.length = length;
     }
@@ -42,14 +42,22 @@ public class Car extends Vehicle {
         }
     }
 
+    @Override
+    public String toString() {
+        return "Car{" +
+                "name='" + name + '\'' +
+                ", width=" + width +
+                ", height=" + height +
+                ", length=" + length +
+                ", weight=" + weight +
+                ", seatingCapacity=" + seatingCapacity +
+                ", registrationNumber='" + registrationNumber + '\'' +
+                ", MAXLENGTH=" + MAXLENGTH +
+                ", MIN=" + MIN +
+                '}';
+    }
 
     public static void main(String[] args) {
-//        try {
-//            Car car = new Car("CarModel", 2.5, 3.5, 12.0, 1500.0, 50);
-//            System.out.println(car);
-//        } catch(IllegalArgumentException e) {
-//            System.out.println(e.getMessage());
-//        }
 
         Car car = new Car();
         try {
