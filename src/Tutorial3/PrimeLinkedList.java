@@ -42,6 +42,5 @@ public class PrimeLinkedList extends LinkedList<Integer> {
             System.out.println(prime.next());
         }
 
-
     }
 }
