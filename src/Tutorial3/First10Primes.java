@@ -1,15 +1,10 @@
 package Tutorial3;
-
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-
+import java.util.*;
 public class First10Primes {
-
     public static void main(String[] args) {
         List<Integer> array = new ArrayList<>();
-        int num =1 ,count =0;
-        while ( count < 10) {
+        int num =1 ,count = 0;
+        while (count < 10) {
             if (isPrimeNumber(num)) {
                 array.add(num);
                 count++;
@@ -17,9 +12,8 @@ public class First10Primes {
             num++;
         }
 
-        Iterator<Integer> ite = array.iterator();
-        while (ite.hasNext()){
-            System.out.println(ite.next());
+        for (Integer integer : array) {
+            System.out.println(integer);
         }
     }
 
