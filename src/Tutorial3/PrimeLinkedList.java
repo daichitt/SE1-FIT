@@ -1,19 +1,33 @@
 package Tutorial3;
 import java.util.Iterator;
 import java.util.LinkedList;
-import java.util.List;
+import java.util.NoSuchElementException;
 
 public class PrimeLinkedList extends LinkedList<Integer> {
-
     public Iterator<Integer> primeIterator() {
-        List<Integer> primeElements = new LinkedList<>(); // List to hold even numbers
-        for (Integer num : this) {
-            if(isPrimeNumber(num)) {
-                primeElements.add(num);
-            }
-        }
-        return primeElements.iterator();
+        return new Generater();
+    }
 
+    public class Generater implements Iterator<Integer> {
+        int nextIndex = 0;
+        @Override
+        public boolean hasNext() {
+            while (nextIndex < size()) {
+                if(isPrimeNumber(get(nextIndex))) {
+                    return true;
+                }
+                nextIndex++;
+            }
+            return false;
+        }
+
+        @Override
+        public Integer next() {
+            if (!hasNext()) {
+                throw new NoSuchElementException();
+            }
+            return get(nextIndex++);
+        }
     }
 
     private static boolean isPrimeNumber(int num) {
@@ -41,6 +55,5 @@ public class PrimeLinkedList extends LinkedList<Integer> {
         while (prime.hasNext()){
             System.out.println(prime.next());
         }
-
     }
 }
